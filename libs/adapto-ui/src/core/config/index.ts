@@ -27,7 +27,7 @@ export function useConfig() {
       globalConfig.tokens.semantic = mergeTokens(globalConfig.tokens.semantic, options?.styles?.tokens?.semantic);
       globalConfig.tokens.component = mergeTokens(globalConfig.tokens.component, options?.styles?.tokens?.component);
 
-      console.log('Theme initialized with config:', globalConfig);
+      console.log('Theme initialized with config :', globalConfig);
 
       appContext.config.globalProperties.$globalConfig = globalConfig;
 

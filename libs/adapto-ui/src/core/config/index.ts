@@ -14,7 +14,7 @@ export function useConfig() {
 
 
   const init = (appContext: App, options: ConfigOptions) => {
-    debugger
+
 
     globalConfig.name = options.options.name || globalConfig.name;
     globalConfig.id = options.options.id || globalConfig.id;
@@ -30,7 +30,6 @@ export function useConfig() {
       console.log('Theme initialized with config:', globalConfig);
 
       appContext.config.globalProperties.$globalConfig = globalConfig;
-      // debugger
 
       appContext.provide('globalConfig', globalConfig);
 

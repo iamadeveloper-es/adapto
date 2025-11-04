@@ -8,6 +8,15 @@
     },
     {
       "path": "./apps/adapto"
+    },
+    {
+      "path": "./apps/sandbox-e2e"
+    },
+    {
+      "path": "./apps/sandbox"
+    },
+    {
+      "path": "./libs/adapto-ui"
     }
   ]
 }

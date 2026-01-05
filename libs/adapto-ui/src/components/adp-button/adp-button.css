@@ -1,0 +1,120 @@
+.__PREFIX__-button {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  vertical-align: middle;
+  font-size: 14px;
+  text-align: center;
+  line-height: var(--__PREFIX__-btn-line-height);
+  padding: var(--__PREFIX__-btn-padding);
+  overflow: hidden;
+  border: none;
+  min-width: 62px;
+  cursor: pointer;
+  color: var(--btn-color);
+  background-color: var(--btn-bg-color);
+
+  &:disabled{
+    background-color: var(--__PREFIX__-btn-disabled);
+    color: var(--__PREFIX__-btn-on-disabled);
+    cursor: initial;
+  }
+}
+
+.__PREFIX__-button--outlined{
+  background: transparent;
+  border: thin solid currentColor;
+}
+/* ${outlinedVariant(cmpPrefix, colors)} */
+
+.__PREFIX__-button--soft{
+  /* color: var(--__PREFIX__-btn-surface); */
+  background-color: color-mix(in srgb, currentColor 20%, transparent);
+}
+/* ${softVariant(cmpPrefix, colors)} */
+
+.__PREFIX__-button--fussy{
+  border: thin solid currentColor;
+  /* color: var(--__PREFIX__-btn-surface); */
+  background-color: color-mix(in srgb, currentColor 20%, transparent);
+}
+/* ${fussyVariant(cmpPrefix, colors)} */
+
+.__PREFIX__-button--soul{
+  background-color: transparent;
+  /* color: var(--__PREFIX__-btn-surface); */
+
+}
+/* ${soulVariant(cmpPrefix, colors)} */
+
+.__PREFIX__-button--link{
+  background-color: transparent;
+  /* color: var(--__PREFIX__-btn-surface); */
+
+  &:hover, &:focus{
+    opacity: .8;
+  }
+
+  &:hover::after, &:focus::after{
+    background-color: transparent;
+  }
+
+}
+/* ${linkVariant(cmpPrefix, colors)} */
+
+.__PREFIX__-button--text-start{
+  justify-content: flex-start;
+}
+
+.__PREFIX__-button--text-center{
+  justify-content: center;
+}
+
+.__PREFIX__-button--text-end{
+  justify-content: flex-end;
+}
+
+.__PREFIX__-button--auto{
+  min-width: initial;
+  --__PREFIX__-btn-padding: 4px 8px;
+  --__PREFIX__-btn-line-height: 1.4;
+}
+
+.__PREFIX__-button--sm{
+  min-width: 42px;
+  --__PREFIX__-btn-padding: 4px 8px;
+  --__PREFIX__-btn-line-height: 1.4;
+}
+
+.__PREFIX__-button--md{
+  min-width: 72px;
+  --__PREFIX__-btn-padding: 8px 12px;
+  --__PREFIX__-btn-line-height: 1.4;
+}
+
+.__PREFIX__-button--lg{
+  min-width: 82px;
+  --__PREFIX__-btn-padding: 8px 12px;
+  --__PREFIX__-btn-line-height: 1.8;
+}
+
+.__PREFIX__-button--full{
+  min-height: 45px;
+  width: 100%;
+}
+
+.__PREFIX__-button--fluid{
+  min-height: initial;
+  width: 100%;
+}
+
+.__PREFIX__-button--icon-prepend{
+  flex-direction: row-reverse;
+}
+
+.__PREFIX__-button.icon{
+  --__PREFIX__-btn-padding: 6px;
+  min-width: auto;
+}

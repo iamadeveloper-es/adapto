@@ -4,6 +4,9 @@
   "include": [],
   "references": [
     {
+      "path": "../../libs/adapto-ui"
+    },
+    {
       "path": "./tsconfig.app.json"
     },
     {

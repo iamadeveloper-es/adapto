@@ -1,9 +1,11 @@
-import { App } from 'vue';
+import { App } from "vue";
 
 import rippleDirective from './directives/ripple-effect';
 import { vClickOutside } from './directives/v-click-outside';
-import { useConfig } from './core';
+import { useConfig } from './core/config';
 const adaptoCore = useConfig();
+
+
 
 export default {
   install: (app: App, options?: any) => {
@@ -14,8 +16,4 @@ export default {
   }
 };
 
-
-//  export * from './components/atoms';
-//  export * from './components/molecules';
- export * from './components/cells';
-//  export * from './components/organisms';
+export * from './components';

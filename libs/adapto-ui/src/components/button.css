@@ -1,0 +1,15 @@
+/* styles/components/button.css */
+
+.__PREFIX__-button {
+  padding: 10px 20px;
+  background-color: var(--__PREFIX__-blue-500);
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+
+  .__PREFIX__-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--__PREFIX__-blue-300);
+  }
+}

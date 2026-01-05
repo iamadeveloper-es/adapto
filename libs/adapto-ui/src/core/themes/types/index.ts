@@ -4,6 +4,7 @@ export type Options = {
   id?: string;
   darkModeSelector?: string;
   loadStyles?: boolean;
+  customIcons?: boolean
 }
 
 export type Tokens = {
@@ -27,6 +28,7 @@ export type ThemeOptions = {
   prefix: string;
   darkModeSelector?: string;
   loadStyles: boolean;
+  customIcons?: boolean,
   tokens: Tokens;
   modes: Modes;
 };

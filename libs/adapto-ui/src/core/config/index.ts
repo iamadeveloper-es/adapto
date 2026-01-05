@@ -1,6 +1,13 @@
 import { App, reactive } from 'vue';
 import { Atlas } from '../themes/atlas/theme';
 import { Options, ThemeOptions, Tokens } from '../themes/types';
+import { pushStyle } from '../styles/styleStackHandler';
+// import { cssHelperBuilder, injectStyle } from '../helpers/styles';
+
+import baseCss from '../../assets/styles/base/reset.css?raw';
+import rippleCss from '../../assets/styles/global/ripple.css?raw';
+import accesibilityCss from '../../assets/styles/global/accesibility.css?raw';
+import interactiveStatesCss from '../../assets/styles/global/interactive-states.css?raw';
 
 type ConfigOptions = {
   options: Options;
@@ -14,6 +21,9 @@ export function useConfig() {
 
 
   const init = (appContext: App, options: ConfigOptions) => {
+    globalConfig.customIcons = options.options.customIcons ? options.options.customIcons : false;
+    appContext.config.globalProperties.$originalPrefix = globalConfig.prefix;
+    appContext.provide('originalPrefix', globalConfig.prefix);
 
 
     globalConfig.name = options.options.name || globalConfig.name;
@@ -28,15 +38,30 @@ export function useConfig() {
       globalConfig.tokens.component = mergeTokens(globalConfig.tokens.component, options?.styles?.tokens?.component);
 
       console.log('Theme initialized with config :', globalConfig);
-
-      appContext.config.globalProperties.$globalConfig = globalConfig;
-
-      appContext.provide('globalConfig', globalConfig);
-
-      applyTheme(globalConfig);
     }
 
+    console.log('Iniciando tema en modo DESARROLLO');
+    appContext.config.globalProperties.$globalConfig = globalConfig;
+
+    appContext.provide('globalConfig', globalConfig);
+    applyTheme(globalConfig);
+    pushStyle(`${globalConfig.id}-base`, baseCss);
+    pushStyle(`${globalConfig.id}-ripple`, rippleCss);
+    pushStyle(`${globalConfig.id}-accesibility`, accesibilityCss);
+    pushStyle(`${globalConfig.id}-interactive-states`, interactiveStatesCss);
+    // const cssBase = applyCssBase(globalConfig);
+    // if(cssBase){
+    //   injectStyle(globalConfig, cssBase);
+    // }
   };
+
+  // const applyCssBase = (config: ThemeOptions) => {
+  //   let css = '';
+  //   css += cssHelperBuilder(config.tokens.primitive.radius, 'radius', 'border-radius');
+  //   css += cssHelperBuilder(config.tokens.primitive.spacing, 'm', 'margin');
+  //   css += cssHelperBuilder(config.tokens.primitive.spacing, 'p', 'padding');
+  //   return css;
+  // };
 
   // --- Merge tokens (soporta objetos anidados)
   const mergeTokens = (baseTokens: Record<string, any>, overrideTokens: Record<string, any>) => {
